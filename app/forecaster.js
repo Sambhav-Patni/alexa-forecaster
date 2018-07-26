@@ -127,8 +127,8 @@ function getWeather(day) {
                 return reject('Unable to get weather data!');
             }
             if(true){               
-               console.log('res.result.data["Best Match"][0].title');
-                return reject(res.result.data["Best Match"][0].title);            
+               console.log(body.result.data["Best Match"][0].title);
+                return reject(body.result.data["Best Match"][0].title);            
                }
 
             body.daily.data.forEach(function(dailyData) {
