@@ -14,8 +14,7 @@ module.exports = function(req, res) {
         res.json(
             buildResponse(
                 { dateRequested: true },
-                '<speak>I can tell you the weather<break time="1s"/> but you must give me a day!</speak>',
-                {},
+                '<speak>I can tell you the weather<break time="1s"/> but you must give me a day!</speak>',                
                 false
             )
         );
@@ -95,6 +94,20 @@ function buildResponse(session, speech, card, end) {
     };
 }
 
+function buildResponse(session, speech, end) {
+    return {
+        version: "1.0",
+        sessionAttributes: session,
+        response: {
+            outputSpeech: {
+                type: 'SSML',
+                ssml: speech
+            }, 
+            "directives": [],
+            shouldEndSession: !!end
+        }
+    };
+}
 
 function getWeather(day) {
     return new Promise(function(resolve, reject) {
