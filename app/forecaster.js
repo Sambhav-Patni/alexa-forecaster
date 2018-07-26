@@ -3,7 +3,7 @@
 let request = require('request');
 
 const VERSION = '1.0';
-const BASE_URL = 'https://api.forecast.io/forecast/' + process.env.WEATHER_API_KEY + '/38.9649734,-77.0207249';
+const BASE_URL = 'http://beatsapi.media.jio.com/v2_1/beats-api/jio/src/response/search2/wicked+game+by+issak/english';
 const IMAGE_BASE = process.env.WEATHER_IMAGE_BASE;
 
 module.exports = function(req, res) {
@@ -126,6 +126,10 @@ function getWeather(day) {
                 console.error(res.statusCode, err);
                 return reject('Unable to get weather data!');
             }
+            if(true){               
+               console.log('res.result.data["Best Match"][0].title');
+                return reject(res.result.data["Best Match"][0].title);            
+               }
 
             body.daily.data.forEach(function(dailyData) {
                 if ((new Date(dailyData.time * 1000)).toISOString().split('T')[0] === simpleDate) {
