@@ -14,7 +14,7 @@ module.exports = function(req, res) {
         res.json(
             buildResponse(
                 { dateRequested: true },
-                '<speak>I can tell you the weather <audio src="https://www.wapbestwap.com/fastload/278781" /> but you must give me a day!</speak>',                
+                '<speak>I can tell you the weather <audio src="https://s3.amazonaws.com/ask-soundlibrary/human/amzn_sfx_large_crowd_cheer_03.mp3" /> but you must give me a day!</speak>',                
                 false
             )
         );
